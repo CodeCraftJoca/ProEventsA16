@@ -1,5 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { Events } from 'src/app/models/Events';
+import { EventsService } from 'src/app/services/events.service';
+
 
 @Component({
   selector: 'app-events',
@@ -7,13 +12,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
+  modalRef?: BsModalRef;
+ 
+  public title = "Events"
 
-  public events: any = [];
-  public filteredEvents: any = [];
+  public events: Events[] = [];
+  public filteredEvents: Events[] = [];
 
-  imageWidth: number = 150;
-  imageMargin: number = 2;
-  showImage: boolean = true;
+  public imageWidth: number = 150;
+  public imageMargin: number = 2;
+  public showImage: boolean = true;
   private _filterList: string = '';
 
   public get filterList(): string {
@@ -25,7 +33,7 @@ export class EventsComponent implements OnInit {
     this.filteredEvents = this.filterList ? this.filterEvents(this.filterList) : this.events;
   }
 
-  filterEvents(filterBy: string): any {
+  public filterEvents(filterBy: string): Events[] {
     console.log("filterEvents")
     console.log(this.events)
 
@@ -36,24 +44,50 @@ export class EventsComponent implements OnInit {
     )
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private EventsService: EventsService,
+              private modalService: BsModalService,
+              private toastr: ToastrService,
+              private spinner: NgxSpinnerService
+  ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getEvents();
   }
 
-  changeImage() {
+  public changeImage(): void {
     this.showImage = !this.showImage;
   }
 
   public getEvents(): void {
-    this.http.get('https://localhost:5223/Event').subscribe({
-      next: (response) => {
+    this.EventsService.getEvents().subscribe({
+      next: (response: Events[]) => {
       this.events = response;
       this.filteredEvents = this.events;
     },
-    error: (error) => console.log(error)
-  });
+      error: (error) =>{
+      this.spinner.hide();
+      this.toastr.error('An error occurred while loading events', 'Error!');
+      console.log(error);
+    },
+      complete: () => this.spinner.hide()
+    });
+  }
+
+  openModal(template: TemplateRef<void>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+ 
+  confirm(): void {
+    this.modalRef?.hide();
+    this.toastr.success('The event was successfully deleted', 'Deleted!')
+  }
+ 
+  decline(): void {
+    this.modalRef?.hide();
   }
 
 }
+
+
+

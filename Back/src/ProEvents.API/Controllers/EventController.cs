@@ -33,7 +33,7 @@ namespace ProEvents.API.Controllers
             }
         }
 
-        [HttpGet("{theme}")]
+        [HttpGet("{theme}/theme")]
         public async Task<IActionResult> GetByTheme(string theme)
         {
             try

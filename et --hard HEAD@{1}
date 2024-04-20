@@ -1,0 +1,13 @@
+[33mdf521da[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m781b07d[m HEAD@{1}: commit: feat: Mapping backend entities, organizing architecture, creating routes and alerts.
+[33mdf521da[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: pull origin master: Merge made by the 'ort' strategy.
+[33m778f084[m HEAD@{3}: commit: feat: remodeling backend and implementing clean architecture, adding persistence, domain and application layers.
+[33m4e25e8a[m HEAD@{4}: reset: moving to HEAD~1
+[33me3ec448[m HEAD@{5}: reset: moving to HEAD~1
+[33md1ff785[m HEAD@{6}: reset: moving to HEAD~1
+[33mcbb93ea[m HEAD@{7}: commit: feat: remodeling backend and implementing clean architecture, adding persistence, domain and application layers.
+[33md1ff785[m HEAD@{8}: reset: moving to HEAD~1
+[33ma413f24[m HEAD@{9}: commit: Add Git LFS tracking for large files
+[33md1ff785[m HEAD@{10}: commit: feat: Restructuring API, implementing domain, application and persistence layers
+[33me3ec448[m HEAD@{11}: commit: feat: add gridEvents
+[33m4e25e8a[m HEAD@{12}: clone: from https://github.com/CodeCraftJoca/ProEventsA16.git

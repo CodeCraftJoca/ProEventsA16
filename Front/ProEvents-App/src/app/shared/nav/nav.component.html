@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand ms-3" href="#">ProEvents</a>
+  <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-bs-toggle="collapse"  data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [collapse]="isCollapsed" [isAnimated]="true" id="navbarNav">
+    <ul class="navbar-nav me-auto me-3">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="events" href="#">Events</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="speakers" href="#">Speakers</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="contact" href="#">Contact</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav me-3">
+      <li class="nav-item dropdown " dropdown >
+        <a dropdownToggle class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true"  aria-expanded="false">
+          User
+        </a>
+        <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="profile" href="#">
+            Profile
+          </a>
+          <div role="separator" class="divider"></div>
+          <a class="dropdown-item" routerLink="" href="#">
+            Exit
+          </a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>
