@@ -12,20 +12,26 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { EventsComponent } from './components/events/events.component';
+import { EventListComponent } from './components/events/event-list/event-list.component';
+import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { SpeakersComponent } from './components/speakers/speakers.component';
+
 import { NavComponent } from './shared/nav/nav.component';
+import { PageTitleComponent } from './shared/page-title/page-title.component';
+
+import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
 
 import { EventsService } from './services/events.service';
-
-import { PageTitleComponent } from './shared/page-title/page-title.component';
-import { EventsComponent } from './components/events/events.component';
-import { SpeakersComponent } from './components/speakers/speakers.component';
-import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
-import { ContactComponent } from './components/contact/contact.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,12 @@ import { ProfileComponent } from './components/profile/profile.component';
     PageTitleComponent,
     ContactComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    EventDetailComponent,
+    EventListComponent,
+    UserComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
